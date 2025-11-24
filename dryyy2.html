@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heritage Crunch</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.6;
+}
+header {
+  background-color: #3a1a00;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 2rem;
+}
+nav {
+  background-color: #6b3e00;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+nav a {
+  color: #ffdca8;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+nav a:hover { color: #fff; text-decoration: underline; }
+.hero {
+  background: url('bg1.jpg') no-repeat center center/cover;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+.product-card:hover { transform: translateY(-5px); }
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.product-info { padding: 15px; }
+.product-info h3 { margin-bottom: 10px; color: #6b3e00; }
+.product-info p { font-size: 0.9rem; color: #555; }
+.order-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #6b3e00;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.order-btn:hover { background-color: #3a1a00; }
+section { margin-bottom: 40px; }
+section h2 {
+  color: #6b3e00;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #6b3e00;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+.order-form {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 500px;
+  margin-top: 20px;
+}
+.order-form.active { display: flex; }
+.order-form input,
+.order-form select,
+.order-form textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.order-form button {
+  padding: 10px;
+  background-color: #6b3e00;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.order-form button:hover { background-color: #3a1a00; }
+footer {
+  background-color: #3a1a00;
+  color: #ffdca8;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+@media(max-width: 600px) {
+  nav { flex-direction: column; }
+  nav a { margin: 10px 0; }
+  .hero { font-size: 1.8rem; height: 200px; }
+}
+</style>
+</head>
+<body>
+
+<header>HERITAGE CRUNCH</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#products">Products</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="home" class="hero">Fresh & Premium Dry Fruits</section>
+
+<div class="container">
+  <section>
+    <h2>Welcome to Heritage Crunch</h2>
+    <p>We deliver the finest selection of dry fruits sourced from trusted farms to ensure purity and taste. Explore our products to enjoy health and flavor in every bite.</p>
+  </section>
+
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="products">
+      <div class="product-card">
+        <img src="almonds.jpg" alt="Almonds">
+        <div class="product-info">
+          <h3>Almonds</h3>
+          <p>High-quality almonds packed with nutrients and freshness.</p>
+          <button class="order-btn" onclick="showOrderForm('Almonds')">Order Now</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="cashews.jpg" alt="Cashews">
+        <div class="product-info">
+          <h3>Cashews</h3>
+          <p>Creamy and delicious cashews perfect for snacking.</p>
+          <button class="order-btn" onclick="showOrderForm('Cashews')">Order Now</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="raisins.jpg" alt="Raisins">
+        <div class="product-info">
+          <h3>Raisins</h3>
+          <p>Sweet and chewy raisins, great for baking and snacking.</p>
+          <button class="order-btn" onclick="showOrderForm('Raisins')">Order Now</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="dates.webp" alt="Dates">
+        <div class="product-info">
+          <h3>Dates</h3>
+          <p>Fresh and sweet dates, perfect for energy boosts.</p>
+          <button class="order-btn" onclick="showOrderForm('Dates')">Order Now</button>
+        </div>
+      </div>
+    <div class="product-card">
+        <img src="Pistachios.JPG" alt="Pistachios">
+        <div class="product-info">
+          <h3>Pistachios</h3>
+          <p>Premium roasted pistachios rich in protein and healthy fats.</p>
+          <button class="order-btn" onclick="showOrderForm('Pistachios')">Order Now</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="wallnut.JPG" alt="Walnuts">
+        <div class="product-info">
+          <h3>Walnuts</h3>
+          <p>Omega-3 rich walnuts sourced fresh from Kashmir farms.</p>
+          <button class="order-btn" onclick="showOrderForm('Walnuts')">Order Now</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="figs.JPG" alt="Figs">
+        <div class="product-info">
+          <h3>Figs (Anjeer)</h3>
+          <p>Soft, sweet and premium quality dried figs.</p>
+          <button class="order-btn" onclick="showOrderForm('Figs')">Order Now</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="apricots.jpg" alt="Apricots">
+        <div class="product-info">
+          <h3>Apricots</h3>
+          <p>Juicy dried apricots rich in natural vitamins.</p>
+          <button class="order-btn" onclick="showOrderForm('Apricots')">Order Now</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="makhana.jpg" alt="Makhana">
+        <div class="product-info">
+          <h3>Makhana</h3>
+          <p>Healthy roasted fox nuts perfect for daily snacking.</p>
+          <button class="order-btn" onclick="showOrderForm('Makhana')">Order Now</button>
+        </div>
+      </div>
+
+    </div>
+
+    <form class="order-form" id="orderForm" onsubmit="submitOrder(event)">
+      <h3>Place Your Order</h3>
+      <label>Full Name:</label>
+      <input type="text" id="name" required>
+
+      <label>Phone Number:</label>
+      <input type="tel" id="phone" required>
+
+      <label>Product:</label>
+      <input type="text" id="product" readonly>
+
+      <label>Quantity (kg):</label>
+      <input type="number" id="quantity" min="1" required>
+
+      <label>Address:</label>
+      <textarea id="address" rows="3" required></textarea>
+
+      <button type="submit">Submit Order</button>
+    </form>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Heritage Crunch Dryfruits has been serving fresh, high-quality dry fruits for over a decade. We are passionate about delivering healthy and delicious products sourced from trusted farms across India.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Email:</strong> contact@heritagecrunchdryfruit.com</p>
+    <p><strong>Phone:</strong> +91 8735980406, 9327895119, 8799311125</p>
+    <p><strong>Address:</strong> Amin Marg, Rajkot, Gujarat, India</p>
+  </section>
+</div>
+
+<footer>
+  &copy; Since 2020 Heritage Crunch Dryfruits. All Rights Reserved.
+</footer>
+
+<script>
+function showOrderForm(productName) {
+  const form = document.getElementById('orderForm');
+  form.classList.add('active');
+  document.getElementById('product').value = productName;
+  form.scrollIntoView({ behavior: 'smooth' });
+}
+
+function submitOrder(e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const phone = document.getElementById('phone').value;
+  const product = document.getElementById('product').value;
+  const quantity = document.getElementById('quantity').value;
+  alert(`Thank you, ${name}! Your order for ${quantity}kg of ${product} has been placed successfully. We'll contact you at ${phone}.`);
+  e.target.reset();
+  e.target.classList.remove('active');
+}
+</script>
+
+</body>
+</html>
